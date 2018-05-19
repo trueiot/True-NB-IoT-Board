@@ -1,0 +1,19 @@
+{
+  "name": "True_NB_bc95",
+  "frameworks": "Arduino",
+  "keywords": "True,TrueIoT, NB-IoT, BC95, Quectel",
+  "description": "Arduino Library for True NB-IoT Shield",
+  "url": "https://github.com/trueiot/True-NB-IoT-Board",
+  "authors":
+  {
+    "name": "True Digital & Media Platform Co.,Ltd/True IoT",
+    "maintainer": true
+  },
+  "repository":
+  {
+      "type": "git",
+      "url": "https://github.com/trueiot/True-NB-IoT-Board.git"
+  }, 
+  "version": "1.0",
+  "platforms": "*"
+}
