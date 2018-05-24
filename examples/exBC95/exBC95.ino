@@ -6,10 +6,11 @@ AltSoftSerial Serial2;
 True_NB_bc95 modem;
 
 // IP for 104.196.24.70 http://demo.thingsboard.io
-String udpRemoteIP = "104.196.24.70";
+//String udpRemoteIP = "104.196.24.70";
+String udpRemoteIP = "188.166.189.39";
 int udpRemotePort = 5683;
 
-char iotToken[] = "KvyQPN5njjWLkTl8UqSH\0";  //Used your Token from ThingsBoard see on ThingsBoard User Guide
+char iotToken[] = "ngSQG83rFeo9nVsvj0Bx\0";  //Used your Token from ThingsBoard ,see on ThingsBoard User Guide
 
 char jsonData[] = "{\"temperature\":%d, \"humidity\":%d }\0";
 char buff[48];
@@ -40,7 +41,7 @@ void loop() {
   delay(3000);
   Serial.println( modem.check_modem_signal() );
   //***************** if using Thingsboard CoAP************************************
-  if (millis() - start > 90000) {
+  if (millis() - start > 9000) {
     start = millis();
     sprintf(buff, jsonData, (int)random(10,20), (int)random(50,60) );
     jsonData_len = strlen(buff);
