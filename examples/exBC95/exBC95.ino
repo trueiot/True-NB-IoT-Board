@@ -26,7 +26,8 @@ void setup() {
   Serial.println("Starting...");
   modem.init(Serial2);
   modem.initModem();
-  Serial.println( modem.getIMEI() );
+  Serial.println( "IMEI = " + modem.getIMEI() );
+  Serial.println( "IMSI = " + modem.getIMSI() );
   while (!modem.register_network());
   delay(1000);
   Serial.println( modem.check_ipaddr() );

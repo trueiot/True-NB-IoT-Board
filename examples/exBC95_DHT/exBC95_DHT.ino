@@ -1,10 +1,9 @@
-/*Create by Dr.Krit
-  //Modify by Anucha Ananbenjapon
+/* 
   //True IoT  Date 11/05/2018
   //Example program for connect DHT22 (Arduino Pin7) get  Teperature,Humidity and get NB-IoT RSSI  to show on LCD (I2C-20x4)
 */
 
-#include "bc95.h"
+#include "True_NB_bc95.h"
 #include <Wire.h>
 #include <DHT.h>;
 #include <LiquidCrystal_I2C.h>
