@@ -21,6 +21,9 @@
 
 #define MODEM_RESP 128
 
+/* Dashboard Partner parameter : IoTtweet.com */
+#define IoTtweetNBIoT_HOST "35.185.177.33"    // - New Cloud IoTtweet server
+#define IoTtweetNBIoT_PORT "5683"             // - Default udp port
 
 class CoapPacketTrueIoT {
   public:
@@ -63,13 +66,14 @@ class True_NB_bc95 {
     int check_modem_signal();
     bool create_UDP_socket(int port, char sock_num[]);
     bool postRequest(char token[], char payload[], CoapPacketTrueIoT *packet);
-    bool sendUDPPacket2(char socknum[], String remoteIP, int remotePort, CoapPacketTrueIoT *packet, int json_len) ;
+    bool sendUDPPacket2(char socknum[], String remoteIP, int remotePort, CoapPacketTrueIoT *packet, int json_len);
+
+    bool sendUDPstr(String ip, String port, String data);
+    String WriteDashboardIoTtweet(String userid, String key, float slot0, float slot1, float slot2, float slot3, String tw, String twpb);
 
   private:
     Stream* MODEM_SERIAL;
+    String _packet, _userid, _key, _tw, _twpb;
+    float _slot0, _slot1, _slot2, _slot3;
 
 };
-
-
-
-
