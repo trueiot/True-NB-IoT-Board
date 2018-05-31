@@ -1,9 +1,14 @@
 /*
+
 TRUE_NB_BC95 v1.0
 Author: True IoT
 Create Date: 1 May 2018
 Modified: 16 May 2018
 Released for Maker and Develper
+
+Modified : 2018.JUN.1
+Re-coding to compatible with IoTtweet.com
+
 */
 
 
@@ -33,7 +38,7 @@ String True_NB_bc95::getIMEI()
 String True_NB_bc95::getIMSI()
 {
   MODEM_SERIAL->println(F("AT+CIMI"));
-  char waitForMISI[] = "\r\n";  
+  char waitForMISI[] = "\r\n";
   String re_str;
   re_str = expect_rx_str(1000, waitForMISI, 2);
 
@@ -122,7 +127,7 @@ String True_NB_bc95::expect_rx_str( unsigned long period, char exp_str[], int le
     }
   }//while
   modem_said[i] = '\0';
-  end_index = i; 
+  end_index = i;
   x = strstr(modem_said, exp_str) ;
   found_index = x ? x - modem_said : -1;
   if ( found_index >= 0  ) {
@@ -366,4 +371,73 @@ bool True_NB_bc95::sendUDPPacket2(char socknum[], String remoteIP, int remotePor
 
 }
 
+bool True_NB_bc95::sendUDPstr(String ip, String port, String data) {
 
+  int str_len = data.length();
+  char buffer[str_len+2];
+  data.toCharArray(buffer, str_len+1);
+
+  /* Start AT command */
+  MODEM_SERIAL->print(F("AT+NSOST=0"));
+  MODEM_SERIAL->print(F(","));
+  MODEM_SERIAL->print(ip);
+  MODEM_SERIAL->print(F(","));
+  MODEM_SERIAL->print(port);
+  MODEM_SERIAL->print(F(","));
+  MODEM_SERIAL->print(String(str_len));
+  MODEM_SERIAL->print(F(","));
+
+  /* Fetch print data in hex format */
+  char *h_buf;
+  h_buf = buffer;
+  char fetch[3] = "";
+  bool chk = false;
+  int i=0;
+
+  while(*h_buf)
+  {
+    chk = itoa((int)*h_buf,fetch,16);
+    if(chk){
+      MODEM_SERIAL->print(fetch);
+    }
+    h_buf++;
+  }
+  MODEM_SERIAL->print("\r\n");
+
+}
+
+String True_NB_bc95::WriteDashboardIoTtweet(String userid, String key, float slot0, float slot1, float slot2, float slot3, String tw, String twpb){
+
+  _userid = userid;
+  _key = key;
+  _slot0 = slot0;
+  _slot1 = slot1;
+  _slot2 = slot2;
+  _slot3 = slot3;
+  _tw = tw;
+  _twpb = twpb;
+
+  Serial.println("------ Send to Cloud.IoTtweet -------");
+             _packet = _userid;
+             _packet += ":";
+             _packet += _key;
+             _packet += ":";
+             _packet += String(_slot0);
+             _packet += ":";
+             _packet += String(_slot1);
+             _packet += ":";
+             _packet += String(_slot2);
+             _packet += ":";
+             _packet += String(_slot3);
+             _packet += ":";
+             _packet += _tw;
+             _packet += ":";
+             _packet += _twpb;
+
+  Serial.println("packet sent : " + String(_packet));
+  Serial.println("--------------------------------------");
+
+  sendUDPstr(IoTtweetNBIoT_HOST, IoTtweetNBIoT_PORT, _packet);
+  return "OK";
+
+}
