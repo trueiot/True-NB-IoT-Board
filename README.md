@@ -58,6 +58,7 @@ The library is using Software Serial for communication with Arduino board.
     bool sendUDPPacket2(char socknum[], String remoteIP, int remotePort, CoapPacketTrueIoT *packet, int json_len)	
 
 ### [วิธีใช้งานกับ Dashboard IoTtweet]
+<img src="https://github.com/Isaranu/IoTtweetNBIoT/blob/master/logo.png" width="100">
 
 - **สมัครใช้งาน IoTtweet** : เข้าไปที่ www.iottweet.com ทำการ Signup และ verify activate e-mail ให้เรียบร้อย. ไปที่ **"My IoT garage"** ทำการเพิ่ม device เพื่อรับ key ที่ใช้สำหรับใส่ลงใน code.
 
