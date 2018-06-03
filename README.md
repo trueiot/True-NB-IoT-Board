@@ -59,6 +59,7 @@ The library is using Software Serial for communication with Arduino board.
 
 ### [วิธีใช้งานกับ Dashboard IoTtweet]
 <img src="https://github.com/Isaranu/IoTtweetNBIoT/blob/master/logo.png" width="100">
+<img src="https://github.com/Isaranu/True-NB-IoT-Board/blob/master/true_nb_iot_iottweet.png" width="500">
 
 - **สมัครใช้งาน IoTtweet** : เข้าไปที่ www.iottweet.com ทำการ Signup และ verify activate e-mail ให้เรียบร้อย. ไปที่ **"My IoT garage"** ทำการเพิ่ม device เพื่อรับ key ที่ใช้สำหรับใส่ลงใน code.
 
