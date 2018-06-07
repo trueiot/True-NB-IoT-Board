@@ -1,7 +1,8 @@
 # True NB-IoT Library
 True NB-IoT Library is designed for `True NB-IoT Arduino Sheild` to connect with your own IoT Platform/ Server. 
 The library is using Software Serial for communication with Arduino board.
-## Auduino Uno Compltible 
+
+### Auduino Uno Compltible 
 เหมาะสำหรับการใช้งานกับ Arduino Uno
 
 ### Specifications:
