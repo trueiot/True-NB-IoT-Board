@@ -3,7 +3,7 @@ TRUE_NB_BC95 v1.0
 Author: True IoT
 Create Date: 1 May 2018
 Modified: 16 May 2018
-Released for Maker and Develper
+Released for Maker and Developer
 Modified : 2018.JUN.1
 Re-coding to compatible with IoTtweet.com
 */
