@@ -1,11 +1,14 @@
 /*
+
 TRUE_NB_BC95 v1.0
 Author: True IoT
 Create Date: 1 May 2018
 Modified: 16 May 2018
 Released for Maker and Develper
+
 Modified : 2018.JUN.1
 Re-coding to compatible with IoTtweet.com
+
 */
 
 
@@ -437,4 +440,88 @@ String True_NB_bc95::WriteDashboardIoTtweet(String userid, String key, float slo
   sendUDPstr(IoTtweetNBIoT_HOST, IoTtweetNBIoT_PORT, _packet);
   return "OK";
 
+}
+
+String True_NB_bc95::check_udp_incoming_str(){
+
+  String retNSOMI;
+  int indexNSONMI;
+  String recvBuf;
+  int delim_pos[10];
+  String msg[10];
+  String msgdata = "";
+
+  if(MODEM_SERIAL->available()){
+
+    retNSOMI = MODEM_SERIAL->readString();
+    //Serial.println(retNSOMI);
+
+    /* Check +NSOMI index */
+    indexNSONMI = retNSOMI.indexOf("+NSONMI:");
+
+    if(indexNSONMI>0){
+      /* Send NSORF to require incoming message size : 100 byte */
+      MODEM_SERIAL->println(F("AT+NSORF=0,100"));
+      delay(300);
+
+        if(MODEM_SERIAL->available()){
+          recvBuf = MODEM_SERIAL->readString();
+          //Serial.println("recvBuf is " + recvBuf);
+
+          /* Parse buffer to message */
+          for(int chkDelim=0; chkDelim<=5; chkDelim++){
+
+            if(chkDelim == 0){
+              delim_pos[chkDelim] = recvBuf.indexOf(F(","));
+              msg[chkDelim] = recvBuf.substring(0,delim_pos[chkDelim]);
+            }else{
+              delim_pos[chkDelim] = recvBuf.indexOf(F(","),(delim_pos[chkDelim-1]+1));
+              msg[chkDelim] = recvBuf.substring(delim_pos[chkDelim-1]+1,delim_pos[chkDelim]);
+            }
+            //Serial.println("delim_pos[" + String(chkDelim) + "] : " + delim_pos[chkDelim]);
+            //Serial.println("msg[" + String(chkDelim) + "]: " + msg[chkDelim]);
+          }
+
+           //Serial.println(msg[4]);
+           //Serial.println("len : " + String(msg[4].length()));
+           msgdata = hex2string(msg[4]);
+           //Serial.println("msg data : " + msgdata);
+        }
+      }
+
+  }
+  return msgdata;
+}
+
+String True_NB_bc95::hex2string(String hexData){
+
+  String converted;
+  char fetchC;
+  _hexData = hexData;
+
+  for(int hexCnt=0; hexCnt<_hexData.length(); hexCnt += 2){
+      fetchC =  byteConverting(_hexData[hexCnt])<<4 | byteConverting(_hexData[hexCnt+1]);
+      converted += fetchC;
+  }
+  return converted;
+}
+
+char True_NB_bc95::byteConverting(char cHex){
+
+  char _byte;
+  char _cHex = cHex;
+
+	if((_cHex >= '0') && (_cHex <= '9')){
+		_byte = _cHex - 0x30;
+	}else{
+    //..
+  }
+
+	if((_cHex >= 'A') && (_cHex <= 'F')){
+		_byte = _cHex - 55;
+	}else{
+    //..
+  }
+
+  return _byte;
 }
