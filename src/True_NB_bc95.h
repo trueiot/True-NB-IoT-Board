@@ -70,10 +70,14 @@ class True_NB_bc95 {
 
     bool sendUDPstr(String ip, String port, String data);
     String WriteDashboardIoTtweet(String userid, String key, float slot0, float slot1, float slot2, float slot3, String tw, String twpb);
+    String check_udp_incoming_str();
+    String hex2string(String hexData);
+    char byteConverting(char c);
 
   private:
     Stream* MODEM_SERIAL;
     String _packet, _userid, _key, _tw, _twpb;
     float _slot0, _slot1, _slot2, _slot3;
+    String _hexData;
 
 };
