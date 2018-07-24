@@ -22,7 +22,7 @@ int temperature; //Stores temperature value
 int rssi; //Stores RSSI value
 LiquidCrystal_I2C lcd(0x27, 20, 4); // set the LCD address to 0x27 for a 20 chars and 4 line display
 
-bc95 modem;
+True_NB_bc95 modem;
 //IP 188.166.189.39 for http://trueiot.io
 //String udpRemoteIP = "188.166.189.39";
 // IP for 104.196.24.70 http://demo.thingsboard.io
