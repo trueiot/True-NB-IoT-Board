@@ -2,6 +2,8 @@
 True NB-IoT Library is designed for `True NB-IoT Arduino Sheild` to connect with your own IoT Platform/ Server. 
 The library is using Software Serial for communication with Arduino board.
 
+## UDP Port ที่แนะนำให้ใช้งานจะอยู่ที่ 5000-10000   
+
 ### Auduino Uno Compatible 
 เหมาะสำหรับการใช้งานกับ **Arduino Uno**  
 หากต้องการใช้งานกับ Arduino Mega 2560 ให้เข้าไปดูวิธีการได้ใน  **`Arduino Mega setup` **
