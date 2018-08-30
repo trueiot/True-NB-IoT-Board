@@ -102,7 +102,7 @@ modem.WriteDashboardIoTtweet(userid, key, data0, data1, data2, data3, private_tw
 ### NB-IoT Shield for Arduino (Narrow Band Internet of Things Shield for Arduino) 
 เป็นบอร์ด สื่อสารสำาหรับเครือข่าย LTE-Cat.NB1 โดยใช้โมดูลรุ่น BC95-B8 จาก Quectel ซึ่งรองรับการใช้งานในย่าน ความถี่ 900 MHz พร้อมความสะดวกในการใช้งานผา่น USB  NB-IoT Shield เหมาะกับการนำไปพัฒนาแอพพลิเคชัน IoT ที่ต้องการประหยัดพลังงาน เช่น ระบบที่จอดรถอัจฉริยะ (Smart Parking System) 
 
-### กรณีไฟไม่ติด อาจเกิดจาก Board เสียหาย  ขอความกรุณาคุณลูกค้านำ Board ไปตรวจสอบอาการเบื้องต้นที่ True Shop ได้ที่สาขาดังต่อไปนี้  `Central World , Central Bang Na ,Central Rama 2, Central Pinklao, Future Park Rangsit, Promenade` และหากพบว่า Bord เสียจริง ทางเราจะดำเนินการเปลี่ยน Bord ให้ใหม่ ตามสาขาดังกล่าว
+### กรณีไฟไม่ติด อาจเกิดจาก Board เสียหาย  ขอความกรุณาคุณลูกค้านำ Board ไปตรวจสอบอาการเบื้องต้นที่ True Shop ได้ที่สาขาดังต่อไปนี้  `Central World , Central Bang Na ,Central Rama 2, Central Pinklao, Future Park Rangsit, Promenade` และหากพบว่า Board เสียจริง ทางเราจะดำเนินการเปลี่ยน Board ให้ใหม่ ตามสาขาดังกล่าว
 
 แต่หากคุณลูกค้าไม่สะดวกไปตามสาขาที่แจ้ง สามารถแจ้งเรื่อง  Board เสียไว้ได้ที่ True Shop ทุกสาขา  และในส่วนสาขาที่ไม่ได้ระบุไว้ข้างตน ทางสาขาจะไม่สามารถเปลี่ยน หรือ ตรวจสอบได้ในทันที  จึงต้องรอทำการจัดส่งไปสาขาที่สามารถเปลี่ยนและตรวจสอบได้ จึงอาจใช้ระยะเวลาในการดำเนินการเพิ่มขึ้น จึงแจ้งคุณลูกค้าไว้ให้ทราบล่วงหน้า
 
