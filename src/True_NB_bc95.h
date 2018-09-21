@@ -57,7 +57,6 @@ class True_NB_bc95 {
     bool closeUDPSocket();
     bool check_match( char target[], char pattern[], int len_check);
     int check_match_index( char target[], char pattern[], int len_check );
-    String expect_rx_str( unsigned long period, char exp_str[], int len_check);
     bool initModem();
     bool check_modem_status();
     bool register_network();
@@ -79,5 +78,9 @@ class True_NB_bc95 {
     String _packet, _userid, _key, _tw, _twpb;
     float _slot0, _slot1, _slot2, _slot3;
     String _hexData;
+    char _modem_buf[BUF_MAX_SIZE];
 
+    String exec_modem_command(char cmd[], char start_tag[], char end_tag[],  unsigned long timeout_ms,  unsigned long post_delay_ms);
+    String expect_rx_str(char start_tag[], char end_tag[],  unsigned long timeout_ms);
+    void flush_modem_serial(unsigned long char_timeout_ms);
 };
