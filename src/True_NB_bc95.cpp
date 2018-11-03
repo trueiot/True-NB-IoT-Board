@@ -10,7 +10,7 @@ Re-coding to compatible with IoTtweet.com
 
 */
 
-
+#include "itoa.h"		//include for Arduino M0 and M0+ for the physical serial port used
 #include "True_NB_bc95.h"
 
 bool True_NB_bc95::reboot() {
