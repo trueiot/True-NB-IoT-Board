@@ -181,7 +181,7 @@ bool True_NB_bc95::register_network() {
     return true;
   }
   else {
-    Serial.println("register network Fail!");
+    Serial.print(".");
     return false;
   }
 }
